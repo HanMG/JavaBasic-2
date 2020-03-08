@@ -2,7 +2,9 @@
 Inflearn - JavaProgramming Basic Course (renew ver.) 21강 인터페이스~
 
 [21강 - 인터페이스](#21강---인터페이스)
+
 [22강 - 추상클래스](#22강---추상클래스--Abstract-Class) 
+
 [23강 - 람다식](#23강---람다식)
 
 21강 - 인터페이스
