@@ -7,6 +7,10 @@ Inflearn - JavaProgramming Basic Course (renew ver.) 21강 인터페이스~
 
 [23강 - 람다식](#23강---람다식)
 
+[24강 - 문자열 클래스](#24강---문자열-클래스)
+
+[25강 - collections](#25강---collections)
+
 21강 - 인터페이스
 ----------------
 
@@ -250,4 +254,105 @@ public interface LambdaInterface3 {
 public interface LambdaInterface4 {
 	public int method(int x, int y);
 }
+`````
+
+24강 - 문자열 클래스
+----------
+24-1 String 객체와 메모리
+`````
+문자열을 다루는 String 클래스(객체)는 데이터가 변하면 메모리 상의 변화가 많아 속도가 느리다.
+
+- 문자열이 변경되면 기존의 객체를 버리고, 새로운 객체를 메모리에 생성한다.
+이때, 기존 객체는 GC에 의해서 메모리 회수가 이루어진다.
+`````
+
+24-2 StringBuffer, StringBuilder
+`````
+String 클래스의 단점을 보완한 클래스로 데이터가 변경되면 메모리에서 기존 객체를 재활용한다.
+
+StringBuffer sf = new StringBuffer("JAVA");
+sf.append("_8");
+
+- 문자열이 변경되면 기존의 객체를 재활용한다.
+- 속도는 StringBuilder가 조금 더 빠르며, 데이터 안정성은 StringBuffer가 조금 더 좋다.
+`````
+
+25강 - collections
+---------------
+25-1 List
+`````
+List는 인터페이스로 이를 구현한 클래스는 인덱스를 이용해서 데이터를 관리한다.
+( Vector, ArrayList, LinkedList )
+- 특징 :
+1. 인덱스를 이용한다.
+2. 데이터 중복이 가능하다.
+`````
+`````java
+// ArrayList 객체생성
+ArrayList<String> list = new ArrayList<String>();
+
+// 데이터 추가
+list.add("Hello");
+list.add("Java");
+list.add("World");
+
+// 해당 인덱스에 추가 , 해당 인덱스에 있던 데이터가 뒤로 밀림
+list.add(2, "Programing");
+
+// 데이터 변경
+list.set(1, "C");	// 첫번째데이터를 "C"로 변경
+
+// 데이터 추출
+String str = list.get(2);
+
+// 데이터 제거
+str = list.remove(2);
+
+// 데이터 전체 제거 , 객체는 살아있음
+list.clear();
+
+// 데이터 유무
+boolean b = list.isEmpty();
+`````
+
+25-2 Map
+`````
+Map은 인터페이스로 이를 구현한 클래스는 key를 이용해서 데이터를 관리한다.
+(HashMap)
+- 특징 : 
+1. key를 이용한다.
+2. key는 중복될 수 없다.
+3. 데이터 중복이 가능하다.
+`````
+`````java
+// HashMap 객체 생성
+HashMap<Integer, String> map = new HashMap<Integer, String>();
+
+// 데이터 추가
+map.put(5,"Hello");
+map.put(6,"Java");
+map.put(7,"World");
+System.out.println("map : "+map);
+System.out.println("map.size() : "+map.size());
+
+// 데이터 교체
+map.put(6,"C"); // 원래있던 Java 사라짐
+
+// 데이터 추출
+str = map.get(5); // Hello
+
+// 데이터 제거
+map.remove(8); // key 값이 8
+
+// 특정 키 포함 유무
+b = map.containsKey(7); // true
+
+// 특정 데이터 포함 유무
+b = map.containsValue("World"); // true
+
+// 데이터 전체 제거
+map.clear();
+
+// 데이터 유무
+b = map.isEmpty(); // true
 `````
